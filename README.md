@@ -6,7 +6,7 @@
 | ------------------- | -------- | --------------------------- |
 |  nickname           |  string  |  null: false                |  
 |  email              |  string  |  null: false, unique: true  |
-|  password           |  string  |  null: false                |
+|  encrypted_password |  string  |  null: false                |
 |  last_name          |  string  |  null: false                |
 |  first_name         |  string  |  null: false                |
 |  last_name_reading  |  string  |  null: false                |
@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :orders
+- has_one :order
 
 
 ## orders テーブル
@@ -49,14 +49,14 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :shopping_addresses
+- has_one :shopping_address
 
 
 ## shopping_addresses テーブル
 
 |  Column         |  Type        |  Option                         |
 | --------------- | ------------ | ------------------------------- |
-|  post_code      |  text        |  null:false                     |
+|  post_code      |  string      |  null:false                     |
 |  prefecture_id  |  integer     |  null:false                     |
 |  city           |  string      |  null:false                     |
 |  house_number   |  string      |  null:false                     |
