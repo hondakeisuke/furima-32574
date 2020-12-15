@@ -11,7 +11,7 @@
 |  first_name         |  string  |  null: false                |
 |  last_name_reading  |  string  |  null: false                |
 |  first_name_reading |  string  |  null: false                |
-|  birthday           |  integer |  null: false                |
+|  birthday           |  date    |  null: false                |
 
 ### Association
 
@@ -20,18 +20,17 @@
 
 ## itemsテーブル
 
-|  Column         |  Type        |  Option                         |
-| --------------- | ------------ | ------------------------------- |
-|  image          |  text        |  null: false                    |
-|  items＿name    |  string      |  null: false                    |
-|  explanation    |  string      |  null: false                    |
-|  category       |  integer     |  null: false                    |
-|  condition      |  integer     |  null: false                    |
-|  delivery_free  |  integer     |  null: false                    |
-|  delivery_area  |  integer     |  null: false                    |
-|  delivery_days  |  integer     |  null: false                    |
-|  price          |  integer     |  null: false                    | 
-|  user_id        |  references  |  null: false, foreign_key: true |
+|  Column           |  Type        |  Option                         |
+| ----------------- | ------------ | ------------------------------- |
+|  items＿name      |  string      |  null: false                    |
+|  explanation      |  text        |  null: false                    |
+|  category_id      |  integer     |  null: false                    |
+|  condition_id     |  integer     |  null: false                    |
+|  delivery_free_id |  integer     |  null: false                    |
+|  prefecture_id    |  integer     |  null: false                    |
+|  delivery_days_id |  integer     |  null: false                    |
+|  price            |  integer     |  null: false                    | 
+|  user             |  references  |  null: false, foreign_key: true |
 
 ### Association
 
@@ -43,15 +42,14 @@
 
 |  Column   |  Type        |  option                         |
 | --------- | ------------ | ------------------------------- |
-|  price    |  integer     |  null: false                    |
-|  user_id  |  references  |  null: false, foreign_key: true |
-|  item_id  |  references  |  null: false, foreign_key: true |
+|  user     |  references  |  null: false, foreign_key: true |
+|  item     |  references  |  null: false, foreign_key: true |
 
 ### Association 
 
 - belongs_to :user
 - belongs_to :item
-- has_many :shopping_addresses
+- has_one :shopping_addresses
 
 
 ## shopping_addresses テーブル
@@ -59,12 +57,12 @@
 |  Column         |  Type        |  Option                         |
 | --------------- | ------------ | ------------------------------- |
 |  post_code      |  text        |  null:false                     |
-|  prefecture     |  integer     |  null:false                     |
+|  prefecture_id  |  integer     |  null:false                     |
 |  city           |  string      |  null:false                     |
 |  house_number   |  string      |  null:false                     |
 |  building_name  |  string      |  null:false                     |
-|  tell_number    |  integer     |  null:false                     |
-|  order_id       |  references  |  null: false, foreign_key: true |
+|  tell_number    |  string      |  null:false                     |
+|  order          |  references  |  null: false, foreign_key: true |
 
 ### Association
 
