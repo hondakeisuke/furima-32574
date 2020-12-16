@@ -49,6 +49,11 @@ RSpec.describe User, type: :model do
         another_user.valid?
         expect(another_user.errors.full_messages).to include("Email has already been taken")
       end
+      it "@がないとemailが登録できない" do
+        @user.email = "test"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email is invalid")
+      end
       it "passwordが空では登録できない" do
         @user.password = ""
         @user.valid?
@@ -79,20 +84,40 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name can't be blank")
       end
+      it 'last_nameが全角入力でなければ登録できないこと' do
+        @user.last_name = "ｱｲｳｴｵ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name is invalid")
+      end
       it "first_nameが空だと登録できない" do
         @user.first_name = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("First name can't be blank")
+      end
+      it 'first_nameが全角入力でなければ登録できないこと' do
+        @user.first_name = "ｱｲｳｴｵ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name is invalid")
       end
       it "last_name_readingが空だと登録できない" do
         @user.last_name_reading = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name reading can't be blank")
       end
+      it 'last_name_readingが全角入力でなければ登録できないこと' do
+        @user.last_name_reading = "ｱｲｳｴｵ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name reading is invalid")
+      end
       it "first_name_readingが空だと登録できない" do
         @user.first_name_reading = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("First name reading can't be blank")
+      end
+      it 'first_name_readingが全角入力でなければ登録できないこと' do
+        @user.first_name_reading = "ｱｲｳｴｵ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name reading is invalid")
       end
       it "birthdayが空だと登録できない" do
         @user.birthday = nil
