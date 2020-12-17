@@ -13,7 +13,7 @@ RSpec.describe Item, type: :model do
 
     context '商品投稿がうまくいかないとき' do
       it 'imageが空のとき登録できない' do
-        @item.image = ''
+        @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include
       end
@@ -86,7 +86,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it 'priceが300円未満のとき登録できない' do
-        @item.price = 200
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than 299')
       end

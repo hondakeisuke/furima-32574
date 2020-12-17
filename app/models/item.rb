@@ -13,6 +13,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :items_name
     validates :explanation
+    validates :image
   end
 
   with_options presence: true, numericality: { other_than: 0 } do
