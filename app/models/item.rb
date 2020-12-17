@@ -24,6 +24,5 @@ class Item < ApplicationRecord
   end
 
   VALID_PASSWORD_REGEX = /\A[0-9]+\z/.freeze
-  validates :price, presence: true, format: { with: VALID_PASSWORD_REGEX },
-                    numericality: { greater_than: 300, less_than: 9_999_999 }
+  validates :price, presence: true, format: { with: VALID_PASSWORD_REGEX },numericality: { greater_than: 299, less_than: 10000000 }
 end
