@@ -35,7 +35,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank", 'Category is not a number')
       end
-      it "category_idの0を選択したとき登録できない" do
+      it 'category_idの0を選択したとき登録できない' do
         @item.category_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 0')
@@ -45,7 +45,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank", 'Condition is not a number')
       end
-      it "condition_idの0を選択したとき登録できない" do
+      it 'condition_idの0を選択したとき登録できない' do
         @item.condition_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition must be other than 0')
@@ -55,7 +55,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery day can't be blank", 'Delivery day is not a number')
       end
-      it "delivery_free_idの0を選択したとき登録できない" do
+      it 'delivery_free_idの0を選択したとき登録できない' do
         @item.delivery_free_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include('Delivery free must be other than 0')
@@ -65,7 +65,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank", 'Prefecture is not a number')
       end
-      it "prefecture_idの0を選択したとき登録できない" do
+      it 'prefecture_idの0を選択したとき登録できない' do
         @item.prefecture_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 0')
@@ -75,7 +75,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery day can't be blank", 'Delivery day is not a number')
       end
-      it "delivery_day_idの0を選択したとき登録できない" do
+      it 'delivery_day_idの0を選択したとき登録できない' do
         @item.delivery_day_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include('Delivery day must be other than 0')
@@ -95,7 +95,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than 10000000')
       end
-      it "商品価格が全角の時に登録できない" do
+      it '商品価格が全角の時に登録できない' do
         @item.price = '１２３４５６'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
