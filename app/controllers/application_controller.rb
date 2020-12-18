@@ -8,5 +8,4 @@ class ApplicationController < ActionController::Base
                                       keys: [:nickname, :last_name, :first_name, :last_name_reading, :first_name_reading,
                                              :birthday])
   end
-
 end
