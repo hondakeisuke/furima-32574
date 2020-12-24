@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :current_user, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :current, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
-  before_action :correct_user, only: [:edit, :destroy]
+  before_action :current, only: [:edit, :destroy]
 
   def index
     @item = Item.all.order('created_at DESC')
@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
                                  :prefecture_id, :prefecture_id, :price, :image).merge(user_id: current_user.id)
   end
 
-  def correct_user
+  def current
     redirect_to(root_url) unless @item.user_id == current_user.id
   end
 
