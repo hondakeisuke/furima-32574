@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
   before_action :sold_out, only: [:index]
 
   def index
-    @order = Order.new
     @credit = Credit.new
   end
 
@@ -39,11 +38,15 @@ class OrdersController < ApplicationController
   end
 
   def current
-    redirect_to root_path if @item.user_id == current_user.id
+    if @item.user_id == current_user.id
+      redirect_to root_path 
+    end
   end
 
   def sold_out
-    redirect_to root_path if @item.order
+    if @item.order
+      redirect_to root_path 
+    end
   end
 
   def item_find
