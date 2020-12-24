@@ -8,6 +8,8 @@ class Credit
     validates :house_number
     validates :tell_number, format: { with: /\A\d{10,11}\z/ }
     validates :token
+    validates :user_id
+    validates :item_id
   end
 
   with_options presence: true, numericality: { other_than: 0 } do

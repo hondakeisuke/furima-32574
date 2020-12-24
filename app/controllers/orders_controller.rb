@@ -1,16 +1,14 @@
 class OrdersController < ApplicationController
-  before_action :item_find, only: [:index, :create, :current, :sold_out]
+  before_action :item_find, only: [:index, :create]
   before_action :authenticate_user!, only: [:index]
   before_action :current, only: [:index]
   before_action :sold_out, only: [:index]
+
   def index
     @order = Order.new
     @credit = Credit.new
   end
 
-  def new
-    @credit = Credit.new
-  end
 
   def create
     @credit = Credit.new(credit_params)

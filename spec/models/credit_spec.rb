@@ -48,10 +48,25 @@ RSpec.describe Credit, type: :model do
       @credit.valid?
       expect(@credit.errors.full_messages).to include('Tell number is invalid')
     end
+    it '電話番号が英数字混合だと保存できないこと' do
+      @credit.tell_number = '123456abcde'
+      @credit.valid?
+      expect(@credit.errors.full_messages).to include('Tell number is invalid')
+    end
     it 'tokenが空では保存できないこと' do
       @credit.token = nil
       @credit.valid?
       expect(@credit.errors.full_messages).to include("Token can't be blank")
+    end
+    it 'user_idが空では保存できないこと' do
+      @credit.user_id = nil
+      @credit.valid?
+      expect(@credit.errors.full_messages).to include("User can't be blank")
+    end
+    it 'item_idが空では保存できないこと' do
+      @credit.item_id = nil
+      @credit.valid?
+      expect(@credit.errors.full_messages).to include("Item can't be blank")
     end
   end
 end

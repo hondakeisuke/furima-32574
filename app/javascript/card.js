@@ -3,7 +3,6 @@ const pay = () => {
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    debugger
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
    
@@ -13,7 +12,6 @@ const pay = () => {
       exp_month: formData.get("credit[exp_month]"),
       exp_year: `20${formData.get("credit[exp_year]")}`,
     };
-    debugger
     
     Payjp.createToken(card, (status, response) => {
       console.log(response)
