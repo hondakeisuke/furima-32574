@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Credit, type: :model do
   describe '購入情報の保存' do
     before do
-      @credit = FactoryBot.build(:credit)
+      @credit = FactoryBot.build(:credit,user_id: 1,item_id: 1)
     end
     
     context '内容に問題がない場合' do

@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
     @credit = Credit.new
   end
 
-
   def create
     @credit = Credit.new(credit_params)
     if @credit.valid?

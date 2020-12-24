@@ -7,7 +7,7 @@ FactoryBot.define do
     building_name   { 'テスト1' }
     tell_number     { '08011112222' }
     token { 'tok_abcdefghijk00000000000000000' }
-    user_id         { 1 }
-    item_id         { 1 }
+    association     :user
+    association     :item
   end
 end
