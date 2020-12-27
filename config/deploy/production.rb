@@ -60,4 +60,4 @@
 #     # password: "please use keys"
 #   }
 
-server '54.150.7.235', user: 'keisuke honda', roles: %w{app db web}
+server '54.150.7.235', user: 'keisukehonda', roles: %w{app db web}
